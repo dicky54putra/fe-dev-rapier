@@ -1,0 +1,37 @@
+// ----------------------------------------------------------------------------
+// This file contains all global mixins
+// ----------------------------------------------------------------------------
+
+@mixin up($breakpoint) {
+    @media screen and (min-width: $breakpoint) {
+        @content;
+    }
+}
+
+@mixin down($breakpoint) {
+    @media screen and (max-width: $breakpoint) {
+        @content;
+    }
+}
+
+@mixin between($min, $max) {
+    @media screen and (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}
+
+@mixin icon {
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+}
+
+@mixin flex-slice($slice, $gap: 30px) {
+    $percentage: calc(100 / $slice);
+    flex-basis: calc(
+        #{$percentage}% -
+            (#{$gap} * (100 / #{$percentage} - 1) / (100 / #{$percentage}))
+    );
+}

@@ -1,0 +1,91 @@
+@mixin display-1 {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 50px;
+
+    @include down($sm) {
+        font-size: 32px;
+    }
+}
+@mixin display-2 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 35px;
+}
+
+@mixin nav-header {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 29.66px;
+  line-height: 17.8px;
+  color: $primary-100 !important;
+}
+
+@mixin heading-1 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+}
+@mixin heading-2 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 25px;
+}
+@mixin heading-3 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 25px;
+}
+@mixin subHeading-1 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 19px;
+  line-height: 28px;
+}
+@mixin subHeading-2 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 28px;
+}
+@mixin body-1 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+}
+@mixin body-2 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 20px;
+}
+@mixin button-1 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 22px;
+}
+@mixin smallText {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 16px;
+}

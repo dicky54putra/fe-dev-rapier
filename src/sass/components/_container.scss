@@ -1,0 +1,11 @@
+.container {
+  max-width: 1000px;
+  padding: 20px 20px 60px 20px;
+  margin-inline: auto;
+  display: block;
+
+  .body {
+    width: 100%;
+    overflow: scroll;
+  }
+}

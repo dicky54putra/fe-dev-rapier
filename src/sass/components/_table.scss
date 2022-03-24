@@ -1,0 +1,71 @@
+.table-responsive {
+  @include down(680px) {
+    overflow-x: scroll;
+  }
+}
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 5px;
+
+  thead,
+  tr,
+  th,
+  td {
+    border: none;
+    padding: 20px 24px 24px 24px;
+    text-align: left;
+  }
+  thead {
+    tr {
+      background-color: transparent !important;
+    }
+  }
+
+  tr {
+    td {
+      border-block: 1px solid $secondary-40;
+    }
+
+    &:nth-child(odd) {
+      background: $white;
+      box-sizing: border-box;
+
+      > td:first-child {
+        border: 1px solid $secondary-40;
+        border-right: none;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+      > td:last-child {
+        border: 1px solid $secondary-40;
+        border-left: none;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+    }
+    &:nth-child(even) {
+      background: $secondary-40;
+      box-sizing: border-box;
+
+      > td:first-child {
+        border: 1px solid $secondary-40;
+        border-right: none;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+      > td:last-child {
+        border: 1px solid $secondary-40;
+        border-left: none;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+    }
+  }
+
+  .action {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}

@@ -1,0 +1,76 @@
+.form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: inherit;
+    position: relative;
+
+    &.w-1\/2 {
+      @include flex-slice(2, 20px);
+    }
+
+    label {
+      @include body-1;
+      color: $neutral-dark;
+    }
+    input,
+    select,
+    textarea {
+      appearance: none;
+      padding: 16px;
+      background: white;
+      border: 1px solid $secondary-40;
+      box-sizing: border-box;
+      border-radius: 8px;
+      color: $neutral-dark;
+      width: 100%;
+
+      &:focus,
+      &:focus-visible,
+      &:hover {
+        appearance: none;
+        color: $secondary-100;
+        outline: none;
+        border: 1px solid $secondary-100;
+      }
+    }
+
+    label.error {
+      color: $red;
+
+      &::after {
+        content: "\f06a";
+        @include icon;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(calc(-50% + 14px));
+        font-size: 18px;
+      }
+    }
+
+    input.error,
+    select.error,
+    textarea.error {
+      border: 1px solid $red;
+      color: $red;
+    }
+
+    input.sm,
+    select.sm,
+    textarea.sm {
+      width: 100%;
+      max-width: 100px;
+      font-weight: 700;
+      color: black;
+      @include heading-2;
+      padding: 8px 16px;
+    }
+  }
+}

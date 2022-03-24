@@ -1,0 +1,63 @@
+// ----------------------------------------------------------------------------
+// This file contains all the styles for Typography base
+// ----------------------------------------------------------------------------
+
+.body {
+    font-family: $font-family-body;
+    color: $neutral-dark;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-family-title;
+    font-weight: 700;
+}
+
+p {
+    font-weight: normal;
+}
+
+.display-1 {
+    @include display-1;
+}
+.display-2 {
+    @include display-2;
+}
+h1,
+.heading-1 {
+    @include heading-1;
+}
+h2,
+.heading-2 {
+    @include heading-2;
+}
+h3,
+.heading-3 {
+    @include heading-3;
+}
+h4,
+.sub_heading-1 {
+    @include subHeading-1;
+}
+h5,
+.sub_heading-2 {
+    @include subHeading-2;
+}
+p,
+.body-1 {
+    @include body-1;
+}
+.body-2 {
+    @include body-2;
+}
+.button {
+    @include button-1;
+}
+small,
+.small-text {
+    @include smallText;
+}

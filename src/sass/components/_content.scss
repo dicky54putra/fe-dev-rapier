@@ -1,0 +1,19 @@
+.content {
+    padding: 10px;
+    box-sizing: border-box;
+    top: 85px;
+    position: relative;
+    padding-bottom: 90px;
+    @include up($sm) {
+        padding-bottom: 60px;
+    }
+    @include up($lg) {
+        padding: 40px 45px 70px 24px;
+    }
+
+    .row {
+        > * {
+            padding-inline: 15px;
+        }
+    }
+}

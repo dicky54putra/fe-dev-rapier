@@ -1,0 +1,44 @@
+.button.button.button {
+    padding: 8px 30px !important;
+    @include button-1;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    height: max-content;
+    text-decoration: none;
+    text-align: center;
+
+    &.primary {
+        background-color: $primary-100;
+        color: white;
+        border: solid 1px $primary-100;
+
+        &:hover {
+            border: solid 1px $secondary-100;
+            background-color: $secondary-100;
+        }
+    }
+
+    &.disabled {
+        background-color: #8295ff;
+        border: solid 1px #8295ff;
+        cursor: not-allowed;
+    }
+
+    &.gform_button {
+        @extend .primary;
+    }
+
+    &.outline {
+        background-color: transparent;
+        color: $neutral-dark;
+        border: solid 1px $neutral-dark;
+
+        &:hover {
+            background-color: $secondary-100;
+            color: white;
+            border: solid 1px $secondary-100;
+        }
+    }
+}
