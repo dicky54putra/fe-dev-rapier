@@ -1,5 +1,6 @@
 import axios from "axios";
-import React from "react";
+import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 import { API_URI } from "../Helpers/Constant";
 import useForm from "../Helpers/hooks/useForm";
 
@@ -11,8 +12,17 @@ export default function Register() {
     password: "",
   });
 
+  const formRef = useRef();
+
   async function fnSubmit(event) {
     event.preventDefault();
+
+    const currentForm = formRef.current;
+    if (!currentForm.checkValidity()) {
+      currentForm.classList.add("was-validate");
+      return;
+    }
+
     try {
       axios({
         method: "post",
@@ -27,17 +37,25 @@ export default function Register() {
   return (
     <div className="register container">
       <h1 className="heading-1">Register</h1>
-      <form action="" onSubmit={fnSubmit} className="form">
+      <form
+        action=""
+        ref={formRef}
+        onSubmit={fnSubmit}
+        className="form"
+        noValidate
+      >
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
             onChange={fnUpdateState}
             value={payload.email}
-            type="text"
+            type="email"
             id="email"
             name="email"
             placeholder="email"
+            required
           />
+          <small className="invalid-caption">Email tidak valid!</small>
         </div>
         <div className="form-group">
           <label htmlFor="nama">Nama</label>
@@ -48,7 +66,9 @@ export default function Register() {
             id="nama"
             name="nama"
             placeholder="nama"
+            required
           />
+          <small className="invalid-caption">Nama tidak boleh kosong!</small>
         </div>
         <div className="form-group">
           <label htmlFor="username">Username</label>
@@ -59,7 +79,11 @@ export default function Register() {
             id="username"
             name="username"
             placeholder="username"
+            required
           />
+          <small className="invalid-caption">
+            Username tidak boleh kosong!
+          </small>
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
@@ -70,12 +94,20 @@ export default function Register() {
             id="password"
             name="password"
             placeholder="password"
+            required
           />
+          <small className="invalid-caption">
+            Password tidak boleh kosong!
+          </small>
         </div>
         <button type="submit" className="button primary">
           Register
         </button>
       </form>
+
+      <p className="body-1">
+        Sudah punya akun? <Link to="/login">Login</Link>
+      </p>
     </div>
   );
 }

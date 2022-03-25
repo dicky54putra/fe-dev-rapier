@@ -11,8 +11,8 @@
     width: inherit;
     position: relative;
 
-    &.w-1\/2 {
-      @include flex-slice(2, 20px);
+    .invalid-caption {
+      display: none;
     }
 
     label {
@@ -40,37 +40,30 @@
         border: 1px solid $secondary-100;
       }
     }
+  }
 
-    label.error {
-      color: $red;
+  &.was-validate {
+    .form-group {
+      input,
+      select,
+      textarea {
+        &:valid {
+          border: 1px solid $primary-100;
+          & ~ .invalid-caption {
+            display: none;
+          }
+        }
 
-      &::after {
-        content: "\f06a";
-        @include icon;
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(calc(-50% + 14px));
-        font-size: 18px;
+        &:invalid {
+          border: 1px solid $red;
+
+          & ~ .invalid-caption {
+            display: block;
+            color: $red;
+            @include smallText;
+          }
+        }
       }
-    }
-
-    input.error,
-    select.error,
-    textarea.error {
-      border: 1px solid $red;
-      color: $red;
-    }
-
-    input.sm,
-    select.sm,
-    textarea.sm {
-      width: 100%;
-      max-width: 100px;
-      font-weight: 700;
-      color: black;
-      @include heading-2;
-      padding: 8px 16px;
     }
   }
 }

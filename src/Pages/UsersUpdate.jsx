@@ -1,6 +1,6 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import { API_URI } from "../Helpers/Constant";
 
@@ -12,6 +12,8 @@ export default function UsersUpdate() {
     nama: "",
     username: "",
   });
+
+  const formRef = useRef(null);
 
   useEffect(() => {
     axios({
@@ -31,6 +33,11 @@ export default function UsersUpdate() {
 
   async function fnSubmit(event) {
     event.preventDefault();
+    const currentForm = formRef.current;
+    if (!currentForm.checkValidity()) {
+      currentForm.classList.add("was-validate");
+      return;
+    }
     try {
       axios({
         method: "put",
@@ -48,17 +55,25 @@ export default function UsersUpdate() {
         <Navbar />
         <div className="update-user">
           <h1 className="heading-1">Update Data: {data.nama}</h1>
-          <form action="" onSubmit={fnSubmit} className="form">
+          <form
+            action=""
+            ref={formRef}
+            onSubmit={fnSubmit}
+            className="form"
+            noValidate
+          >
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
                 onChange={fnUpdateState}
                 value={data.email}
-                type="text"
+                type="email"
                 id="email"
                 name="email"
                 placeholder="email"
+                required
               />
+              <small className="invalid-caption">Email tidak valid!</small>
             </div>
             <div className="form-group">
               <label htmlFor="nama">nama</label>
@@ -69,7 +84,11 @@ export default function UsersUpdate() {
                 id="nama"
                 name="nama"
                 placeholder="nama"
+                required
               />
+              <small className="invalid-caption">
+                Nama tidak boleh kosong!
+              </small>
             </div>
             <div className="form-group">
               <label htmlFor="username">Username</label>
@@ -81,10 +100,16 @@ export default function UsersUpdate() {
                 name="username"
                 placeholder="username"
               />
+              <small className="invalid-caption">
+                Username tidak boleh kosong!
+              </small>
             </div>
             <button type="submit" className="button primary">
               Update
             </button>
+            <Link to="/users" className="button outline">
+              Back
+            </Link>
           </form>
         </div>
       </div>
