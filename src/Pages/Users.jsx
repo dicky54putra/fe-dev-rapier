@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Auth from "../Helpers/Auth";
-import { API_URI } from "../Helpers/Constant";
+import { API_DELETE_JSON, API_USERS_JSON } from "../Helpers/RouteApi";
 
 export default function Users() {
   Auth("dashboard-page");
@@ -17,7 +17,7 @@ export default function Users() {
   useEffect(() => {
     axios({
       method: "get",
-      url: `${API_URI}/api/users`,
+      url: API_USERS_JSON,
     }).then((res) => {
       setData(res.data);
     });
@@ -29,8 +29,8 @@ export default function Users() {
 
   const fnDelete = (id) => {
     axios({
-      method: "delete",
-      url: `${API_URI}/api/user/${id}`,
+      method: "get",
+      url: API_DELETE_JSON,
     }).then(async (res) => {
       const row = document.getElementById(`user-${id}`);
       await setStateMsg(false);

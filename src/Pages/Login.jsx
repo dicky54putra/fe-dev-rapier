@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import Auth from "../Helpers/Auth";
-import { API_URI } from "../Helpers/Constant";
 import useForm from "../Helpers/hooks/useForm";
+import { API_LOGIN_JSON } from "../Helpers/RouteApi";
 
 export default function Login() {
   const { state: payload, fnUpdateState } = useForm({
@@ -25,8 +25,8 @@ export default function Login() {
 
     try {
       axios({
-        method: "post",
-        url: `${API_URI}/api/login`,
+        method: "get",
+        url: API_LOGIN_JSON,
         data: payload,
       }).then(async (res) => {
         const data = res.data;

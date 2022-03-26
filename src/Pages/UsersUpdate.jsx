@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Auth from "../Helpers/Auth";
-import { API_URI } from "../Helpers/Constant";
+import { API_EDIT_JSON } from "../Helpers/RouteApi";
 
 export default function UsersUpdate() {
   Auth("dashboard-page");
@@ -21,7 +21,7 @@ export default function UsersUpdate() {
   useEffect(() => {
     axios({
       method: "get",
-      url: `${API_URI}/api/user/${id}`,
+      url: `/api/user_${id}.json`,
     }).then((res) => {
       setData(res.data);
     });
@@ -43,8 +43,8 @@ export default function UsersUpdate() {
     }
     try {
       axios({
-        method: "put",
-        url: `${API_URI}/api/update/${id}`,
+        method: "get",
+        url: API_EDIT_JSON,
         data: data,
       });
     } catch (error) {

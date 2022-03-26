@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-import { API_URI } from "../Helpers/Constant";
 import useForm from "../Helpers/hooks/useForm";
+import { API_REGISTER_JSON } from "../Helpers/RouteApi";
 
 export default function Register() {
   const { state: payload, fnUpdateState } = useForm({
@@ -25,9 +25,11 @@ export default function Register() {
 
     try {
       axios({
-        method: "post",
-        url: `${API_URI}/api/register`,
+        method: "get",
+        url: API_REGISTER_JSON,
         data: payload,
+      }).then(async (res) => {
+        window.location.href = "/";
       });
     } catch (error) {
       console.log(error);
