@@ -2,9 +2,12 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "../Components/Navbar";
+import Auth from "../Helpers/Auth";
 import { API_URI } from "../Helpers/Constant";
 
 export default function UsersUpdate() {
+  Auth("dashboard-page");
+
   const { id } = useParams();
 
   const [data, setData] = useState({
@@ -31,7 +34,7 @@ export default function UsersUpdate() {
     }));
   }
 
-  async function fnSubmit(event) {
+  function fnSubmit(event) {
     event.preventDefault();
     const currentForm = formRef.current;
     if (!currentForm.checkValidity()) {
@@ -60,8 +63,7 @@ export default function UsersUpdate() {
             ref={formRef}
             onSubmit={fnSubmit}
             className="form"
-            noValidate
-          >
+            noValidate>
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input

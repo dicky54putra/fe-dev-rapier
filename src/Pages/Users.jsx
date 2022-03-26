@@ -1,11 +1,18 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Components/Navbar";
+import Auth from "../Helpers/Auth";
 import { API_URI } from "../Helpers/Constant";
 
 export default function Users() {
+  Auth("dashboard-page");
+
   const [data, setData] = useState(null);
+
+  const message = useRef(null);
+  const [stateMsg, setStateMsg] = useState(true);
 
   useEffect(() => {
     axios({
@@ -14,6 +21,7 @@ export default function Users() {
     }).then((res) => {
       setData(res.data);
     });
+
     return () => {
       setData(null);
     };
@@ -23,6 +31,11 @@ export default function Users() {
     axios({
       method: "delete",
       url: `${API_URI}/api/user/${id}`,
+    }).then(async (res) => {
+      const row = document.getElementById(`user-${id}`);
+      await setStateMsg(false);
+      await (message.current.lastChild.data = res.data.message);
+      await row.remove();
     });
   };
 
@@ -31,6 +44,12 @@ export default function Users() {
       <Navbar />
       <div className="header">
         <h1 className="heading-1">Data Users</h1>
+        <p
+          className="body-1"
+          ref={message}
+          style={{ display: stateMsg ? "none" : "block" }}>
+          Data berhasil dihapus
+        </p>
       </div>
       <div className="body">
         <div className="table-responsive">
@@ -55,14 +74,12 @@ export default function Users() {
                     <td className="body-1 black action">
                       <button
                         onClick={() => fnDelete(user.ID)}
-                        className="button outline"
-                      >
+                        className="button outline">
                         Delete
                       </button>
                       <Link
                         to={`/user-update/${index + 1}`}
-                        className="button primary"
-                      >
+                        className="button primary">
                         Update
                       </Link>
                     </td>

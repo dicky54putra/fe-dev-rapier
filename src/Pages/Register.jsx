@@ -14,7 +14,7 @@ export default function Register() {
 
   const formRef = useRef();
 
-  async function fnSubmit(event) {
+  function fnSubmit(event) {
     event.preventDefault();
 
     const currentForm = formRef.current;
@@ -42,8 +42,7 @@ export default function Register() {
         ref={formRef}
         onSubmit={fnSubmit}
         className="form"
-        noValidate
-      >
+        noValidate>
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input

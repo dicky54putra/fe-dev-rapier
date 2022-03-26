@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useRef } from "react";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Auth from "../Helpers/Auth";
 import { API_URI } from "../Helpers/Constant";
 import useForm from "../Helpers/hooks/useForm";
 
@@ -11,17 +11,11 @@ export default function Login() {
     password: "",
   });
 
+  Auth("login-page");
+
   const formRef = useRef();
 
-  useEffect(() => {
-    const isLogin = localStorage.getItem("isLogin");
-
-    if (isLogin) {
-      window.location.href = "/users";
-    }
-  });
-
-  async function fnSubmit(event) {
+  function fnSubmit(event) {
     event.preventDefault();
     const currentForm = formRef.current;
     if (!currentForm.checkValidity()) {
@@ -55,8 +49,7 @@ export default function Login() {
         ref={formRef}
         onSubmit={fnSubmit}
         className="form"
-        noValidate
-      >
+        noValidate>
         <div className="form-group">
           <label htmlFor="username">Username</label>
           <input
