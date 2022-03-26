@@ -1,16 +1,19 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Auth(param) {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const isLogin = localStorage.getItem("isLogin");
 
     if (isLogin) {
       if (param === "login-page") {
-        window.location.href = "/users";
+        navigate("users");
       }
     } else {
       if (param === "dashboard-page") {
-        window.location.href = "/login";
+        navigate("login");
       }
     }
   });

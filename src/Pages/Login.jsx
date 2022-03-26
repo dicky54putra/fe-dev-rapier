@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Auth from "../Helpers/Auth";
 import useForm from "../Helpers/hooks/useForm";
 import { API_LOGIN_JSON } from "../Helpers/RouteApi";
@@ -10,6 +10,8 @@ export default function Login() {
     username: "",
     password: "",
   });
+
+  const navigate = useNavigate();
 
   Auth("login-page");
 
@@ -30,10 +32,9 @@ export default function Login() {
         data: payload,
       }).then(async (res) => {
         const data = res.data;
-        console.log(data.data.session);
         if (data.status) {
           await localStorage.setItem("isLogin", data.data.session);
-          window.location.href = "/users";
+          navigate("users");
         }
       });
     } catch (error) {

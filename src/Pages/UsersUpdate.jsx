@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Auth from "../Helpers/Auth";
 import { API_EDIT_JSON } from "../Helpers/RouteApi";
@@ -9,6 +9,7 @@ export default function UsersUpdate() {
   Auth("dashboard-page");
 
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [data, setData] = useState({
     email: "",
@@ -46,6 +47,8 @@ export default function UsersUpdate() {
         method: "get",
         url: API_EDIT_JSON,
         data: data,
+      }).then((res) => {
+        res.status === 200 && navigate("users");
       });
     } catch (error) {
       console.log(error);
