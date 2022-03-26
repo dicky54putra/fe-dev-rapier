@@ -1,0 +1,445 @@
+{
+	"info": {
+		"_postman_id": "f40c676e-1950-4705-bab0-2b7e47326f56",
+		"name": "Rapier Mock test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Rapier-Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"teset\",\n    \"password\": \"okok\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Rapier-Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"data\": {\n        \"ID\": \"ajlsdfy09h123jnlASD\",\n        \"session\": \"asldkjfhlasdf098098.!@#$%^98hadslf\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Rapier-Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Rapier-Register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"dicky@gmail.com\",\n    \"nama\":\"Dicky\",\n    \"username\": \"dicky\",\n    \"password\": \"kukukuku\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Berhasil mendaftar, Silahkan Login\",\n    \"data\": {\n        \"ID\": \"ajlsdfy09h123jnlASD\",\n        \"session\": \"asldkjfhlasdf098098.!@#$%^98hadslf\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Rapier-Edit",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/update/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Rapier-Edit",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"dicky@gmail.com\",\n    \"nama\":\"Dicky\",\n    \"username\": \"dicky\",\n    \"password\": \"kukukuku\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/update/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Berhasil mengedit\",\n    \"data\": {\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Rapier-data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Rapier-data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"email\": \"dicky@gmail.com\",\n        \"nama\": \"dicky\",\n        \"username\": \"dicky\"\n    },\n    {\n        \"ID\": 2,\n        \"email\": \"mahmud@gmail.com\",\n        \"nama\": \"mahmud\",\n        \"username\": \"mahmud\"\n    },\n    {\n        \"ID\": 3,\n        \"email\": \"udin@gmail.com\",\n        \"nama\": \"udin\",\n        \"username\": \"udin\"\n    },\n    {\n        \"ID\": 4,\n        \"email\": \"joko@gmail.com\",\n        \"nama\": \"joko\",\n        \"username\": \"joko\"\n    }\n]"
+				},
+				{
+					"name": "Rapier-data:Dicky",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/user/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"1"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"email\": \"dicky@gmail.com\",\n    \"nama\": \"dicky\",\n    \"username\": \"dicky\"\n}"
+				},
+				{
+					"name": "Rapier-data:mahmud",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/user/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"email\": \"mahmud@gmail.com\",\n    \"nama\": \"mahmud\",\n    \"username\": \"mahmud\"\n}"
+				},
+				{
+					"name": "Rapier-data:udin",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/user/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"email\": \"udin@gmail.com\",\n    \"nama\": \"udin\",\n    \"username\": \"udin\"\n}"
+				},
+				{
+					"name": "Rapier-data:joko",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/user/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"4"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"email\": \"joko@gmail.com\",\n    \"nama\": \"joko\",\n    \"username\": \"joko\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Rapier-Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/user/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"user",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Rapier-Delete:dicky",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/user/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"1"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"status\": true,\r\n    \"ID\": 1,\r\n    \"message\": \"Data Dicky berhasil dihapus\"\r\n}"
+				},
+				{
+					"name": "Rapier-Delete:mahmud",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/user/2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"2"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n    \"status\": true,\r\n    \"ID\": 2,\r\n    \"message\": \"Data Mahmud berhasil dihapus\"\r\n}"
+				},
+				{
+					"name": "Rapier-Delete:udin",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/user/3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"3"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n    \"status\": true,\r\n    \"ID\": 3,\r\n    \"message\": \"Data Udin berhasil dihapus\"\r\n}"
+				},
+				{
+					"name": "Rapier-Delete:joko",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/user/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"4"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"status\": true,\n    \"ID\": 4,\n    \"message\": \"Data Joko berhasil dihapus\"\n}"
+				}
+			]
+		}
+	]
+}
